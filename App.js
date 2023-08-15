@@ -26,7 +26,7 @@ export default function App() {
       setChartData(chartData);
       setLoading(false);
     } catch (err) {
-      if (err) alert('Network Error, check internet connection');
+      alert('Network Error, check internet connection');
     }
   };
 
@@ -52,12 +52,8 @@ export default function App() {
       />
       <TopChart usdData={usdData} chartConfig={chartConfig} />
       <CentralBlock
-        usdActualValue={String(usdActualValue).padEnd(5, '.0')}
-        eurActualValue={
-          String(eurActualValue).includes('.')
-            ? String(eurActualValue)
-            : String(eurActualValue) + '.0'
-        }
+        usdActualValue={usdActualValue}
+        eurActualValue={eurActualValue}
         currentDate={currentDate}
       />
       <BottomChart eurData={eurData} chartConfig={chartConfig} />
