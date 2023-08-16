@@ -1,1 +1,3 @@
-## application to check actual usd.rub, eur.rub rates, and historical values (for 1 year)
+# Application to check actual usd.rub, eur.rub rates, and historical values (for 1 year)
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/8eead604dc8f17fa9c9c/maintainability)](https://codeclimate.com/github/DomnitskiyOleg/usd.eur-mobile.app/maintainability)
