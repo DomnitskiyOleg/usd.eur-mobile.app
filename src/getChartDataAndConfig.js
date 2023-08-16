@@ -1,22 +1,18 @@
+function getCurrencyData(chartData, currency) {
+  return {
+    labels: chartData[`${currency}ChartData`].months,
+    datasets: [
+      {
+        data: chartData[`${currency}ChartData`].values,
+        color: (opacity = 0.6) => `rgba(255, 255, 255, 0.6)`,
+      },
+    ],
+  };
+}
+
 export default function getChartDataAndConfig(chartData) {
-  const usdData = {
-    labels: chartData.usdChartData.months,
-    datasets: [
-      {
-        data: chartData.usdChartData.values,
-        color: (opacity = 0.6) => `rgba(255, 255, 255, 0.6)`,
-      },
-    ],
-  };
-  const eurData = {
-    labels: chartData.eurChartData.months,
-    datasets: [
-      {
-        data: chartData.eurChartData.values,
-        color: (opacity = 0.6) => `rgba(255, 255, 255, 0.6)`,
-      },
-    ],
-  };
+  const usdData = getCurrencyData(chartData, 'usd');
+  const eurData = getCurrencyData(chartData, 'eur');
   const chartConfig = {
     useShadowColorFromDataset: true,
     backgroundColor: '#e26a00',
