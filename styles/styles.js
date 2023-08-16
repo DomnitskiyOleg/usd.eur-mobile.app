@@ -13,7 +13,7 @@ export default styles = StyleSheet.create({
     top: 0,
     height: Dimensions.get('screen').height,
   },
-  central: {
+  central_block: {
     display: 'flex',
     flexDirection: 'row',
     marginVertical: 12,
@@ -21,6 +21,21 @@ export default styles = StyleSheet.create({
     height: Dimensions.get('window').height * 0.15,
     justifyContent: 'space-around',
     overflow: 'hidden',
+  },
+  central_text: {
+    fontSize: Dimensions.get('window').width * 0.062,
+    margin: 2,
+    opacity: 0.9,
+    color: 'black',
+    fontWeight: '700',
+    textShadowRadius: 2,
+    textShadowColor: 'black',
+  },
+  central_date: {
+    fontSize: 11,
+    margin: 0,
+    textShadowRadius: 2.5,
+    textShadowColor: 'black',
   },
   linear: {
     padding: 5,
