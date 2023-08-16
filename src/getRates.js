@@ -16,54 +16,41 @@ function getRatesPerMonth(rates) {
   return result;
 }
 
+function getNormalizedRates(ratesObj) {
+  const normalizedRates = ratesObj.valcurs.record.map(
+    ({ Date: [date], value: [price] }) => ({
+      [getNormalizedDate(date)]: parseFloat(price.replace(',', '.')),
+    }),
+  );
+  return normalizedRates;
+}
+
+function getParsedObj(xml) {
+  let parsedObj;
+  parseString(
+    xml,
+    { trim: true, mergeAttrs: true, normalizeTags: true },
+    (err, result) => {
+      if (err) {
+        alert('Parsing Error - restart APP');
+        return;
+      }
+      parsedObj = result;
+    },
+  );
+  return parsedObj;
+}
+
 export default function getUsdEurRates(xml1, xml2, xml3) {
-  let usdRatesObj;
-  let eurRatesObj;
-  let actualRatesObj;
-  parseString(
-    xml1,
-    { trim: true, mergeAttrs: true, normalizeTags: true },
-    (err, result) => {
-      if (err) {
-        alert('Parsing Error - restart APP');
-        return;
-      }
-      usdRatesObj = result;
-    },
-  );
-  parseString(
-    xml2,
-    { trim: true, mergeAttrs: true, normalizeTags: true },
-    (err, result) => {
-      if (err) {
-        alert('Parsing Error - restart APP');
-        return;
-      }
-      eurRatesObj = result;
-    },
-  );
-  parseString(
-    xml3,
-    { trim: true, mergeAttrs: true, normalizeTags: true },
-    (err, result) => {
-      if (err) {
-        alert('Parsing Error - restart APP');
-        return;
-      }
-      actualRatesObj = result;
-    },
-  );
+  const usdRatesObj = getParsedObj(xml1);
+  const eurRatesObj = getParsedObj(xml2);
+  const actualRatesObj = getParsedObj(xml3);
+
   const date = actualRatesObj.valcurs.Date.join('');
-  const usdExchangeRates = usdRatesObj.valcurs.record.map(
-    ({ Date: [date], value: [price] }) => ({
-      [getNormalizedDate(date)]: parseFloat(price.replace(',', '.')),
-    }),
-  );
-  const eurExchangeRates = eurRatesObj.valcurs.record.map(
-    ({ Date: [date], value: [price] }) => ({
-      [getNormalizedDate(date)]: parseFloat(price.replace(',', '.')),
-    }),
-  );
+
+  const usdExchangeRates = getNormalizedRates(usdRatesObj);
+  const eurExchangeRates = getNormalizedRates(eurRatesObj);
+
   const usdEurActualRates = actualRatesObj.valcurs.valute.reduce(
     (acc, { ID: [id], value: [price] }) => {
       const normalizedPrice =
