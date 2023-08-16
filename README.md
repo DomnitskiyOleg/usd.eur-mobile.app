@@ -14,6 +14,6 @@ https://drive.google.com/file/d/1Mo9x4_XTtCtqjnF4KPIh_CHRfZiplnO8/view?usp=drive
 
 ![Alt text](assets/photo.jpg)
 
-## Apllication work video
-https://github.com/DomnitskiyOleg/usd.eur-mobile.app/assets/119673815/ade251dd-3d94-419f-acfa-b581a491276c
+## Apllication's work video
 
+https://github.com/DomnitskiyOleg/usd.eur-mobile.app/assets/119673815/ade251dd-3d94-419f-acfa-b581a491276c
