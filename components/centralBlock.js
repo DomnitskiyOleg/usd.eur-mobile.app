@@ -1,6 +1,7 @@
 import styles from '../styles/styles.js';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Text, View, Image } from 'react-native';
+import ValueContainer from './valueContainer.js';
 
 export default (props) => (
   <View style={styles.central_block}>
@@ -10,17 +11,17 @@ export default (props) => (
         source={require('../pictures/usa-flag.png')}
         style={styles.logos}
       />
-      <View style={styles.valueContainer}>
-        <Text style={styles.central_text}>{props.usdActualValue}</Text>
-        <Text style={styles.central_date}>{props.currentDate}</Text>
-      </View>
+      <ValueContainer
+        currentDate={props.currentDate}
+        actualValue={props.usdActualValue}
+      />
     </LinearGradient>
     <LinearGradient colors={['#fb8c00', '#ffa726']} style={styles.linear}>
       <Text style={styles.text}>TODAY'S EUR RATE</Text>
-      <View style={styles.valueContainer}>
-        <Text style={styles.central_text}>{props.eurActualValue}</Text>
-        <Text style={styles.central_date}>{props.currentDate}</Text>
-      </View>
+      <ValueContainer
+        currentDate={props.currentDate}
+        actualValue={props.eurActualValue}
+      />
       <Image
         source={require('../pictures/europe-flag.png')}
         style={styles.logos}
