@@ -4,7 +4,7 @@
 
 # USD-EUR
 
-# Mobile to check actual usd.rub, eur.rub rates, and historical values (for 1 year)
+Mobile application to check actual usd.rub, eur.rub rates, and historical values (for 1 year)
 
 # Download Link
 
