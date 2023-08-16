@@ -6,9 +6,8 @@ import getUsdEurUrls from './src/getUrlsForFetch.js';
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
-import { View, TouchableOpacity, Dimensions, Text } from 'react-native';
-import TopChart from './components/topChart.js';
-import BottomChart from './components/bottomChart.js';
+import { View, TouchableOpacity, Text } from 'react-native';
+import Chart from './components/chart.js';
 import CentralBlock from './components/centralBlock.js';
 
 export default function App() {
@@ -50,13 +49,21 @@ export default function App() {
         colors={['#191919', '#727272', '#191919']}
         style={styles.background}
       />
-      <TopChart usdData={usdData} chartConfig={chartConfig} />
+      <Chart
+        currencyData={usdData}
+        chartConfig={chartConfig}
+        header={'USD.RUB - 1 YEAR CHART'}
+      />
       <CentralBlock
         usdActualValue={usdActualValue}
         eurActualValue={eurActualValue}
         currentDate={currentDate}
       />
-      <BottomChart eurData={eurData} chartConfig={chartConfig} />
+      <Chart
+        currencyData={eurData}
+        chartConfig={chartConfig}
+        header={'EUR.RUB - 1 YEAR CHART'}
+      />
       <TouchableOpacity
         style={styles.refreshButton}
         onPress={() => {
