@@ -4,12 +4,12 @@
 
 # USD-EUR
 
-### Mobile to check actual usd.rub, eur.rub rates, and historical values (for 1 year)
+# Mobile to check actual usd.rub, eur.rub rates, and historical values (for 1 year)
 
-### Download Link
+# Download Link
 
-### Application screenshot
+# Application screenshot
 
 ![Alt text](assets/photo.jpg)
 
-### Apllication work video
+# Apllication work video
