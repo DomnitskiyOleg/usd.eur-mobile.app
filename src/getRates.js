@@ -25,6 +25,23 @@ function getNormalizedRates(ratesObj) {
   return normalizedRates;
 }
 
+function getNormalizedActualRates(ratesObj) {
+  const normalizedRates = ratesObj.valcurs.valute.reduce(
+    (acc, { ID: [id], value: [price] }) => {
+      const normalizedPrice =
+        Math.round(parseFloat(price.replace(',', '.')) * 10) / 10;
+      if (id === 'R01235') {
+        acc.usdActualValue = normalizedPrice;
+      } else if (id === 'R01239') {
+        acc.eurActualValue = normalizedPrice;
+      }
+      return acc;
+    },
+    {},
+  );
+  return normalizedRates;
+}
+
 function getParsedObj(xml) {
   let parsedObj;
   parseString(
@@ -51,19 +68,7 @@ export default function getUsdEurRates(xml1, xml2, xml3) {
   const usdExchangeRates = getNormalizedRates(usdRatesObj);
   const eurExchangeRates = getNormalizedRates(eurRatesObj);
 
-  const usdEurActualRates = actualRatesObj.valcurs.valute.reduce(
-    (acc, { ID: [id], value: [price] }) => {
-      const normalizedPrice =
-        Math.round(parseFloat(price.replace(',', '.')) * 10) / 10;
-      if (id === 'R01235') {
-        acc.usdActualValue = normalizedPrice;
-      } else if (id === 'R01239') {
-        acc.eurActualValue = normalizedPrice;
-      }
-      return acc;
-    },
-    {},
-  );
+  const usdEurActualRates = getNormalizedActualRates(actualRatesObj);
   const usdRatesPerMonth = getRatesPerMonth(usdExchangeRates);
   const eurRatesPerMonth = getRatesPerMonth(eurExchangeRates);
   const usdChartData = {
