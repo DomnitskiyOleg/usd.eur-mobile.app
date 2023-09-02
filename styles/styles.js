@@ -78,7 +78,8 @@ export default styles = StyleSheet.create({
   },
   valueContainer: {
     minHeight: '60%',
-    width: '45%',
+    minWidth: '20%',
+    paddingHorizontal: 2,
     borderRadius: 16,
     borderWidth: 1.4,
     borderStyle: 'dashed',
