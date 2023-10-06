@@ -8,7 +8,7 @@
 
 ## Download Link
 
-https://drive.google.com/file/d/1Mo9x4_XTtCtqjnF4KPIh_CHRfZiplnO8/view?usp=drive_link
+https://drive.google.com/file/d/1QfGPfczD5aog0Ml_YcEgsfmjpYWtfKj7/view?usp=sharing
 
 ## Application screenshot
 
